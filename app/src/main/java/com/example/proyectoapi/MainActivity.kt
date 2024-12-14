@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.example.proyectoapi.appBar.BottomBar
 import com.example.proyectoapi.navigation.Proyecto
 import com.example.proyectoapi.ui.theme.ProyectoApiTheme
 import kotlinx.coroutines.CoroutineScope
@@ -26,8 +29,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ProyectoApiTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                val navController = rememberNavController()
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    bottomBar = { if(navController.currentBackStackEntryAsState().value?.destination?.route != "Portada") { BottomBar(navController) } }
+                ) { innerPadding ->
                     Proyecto(
+                        navigationController = navController,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.logintumblr"
-    compileSdk = 34
+    namespace = "com.example.proyectoapi"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.logintumblr"
+        applicationId = "com.example.proyectoapi"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

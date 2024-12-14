@@ -10,15 +10,15 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 
 @Composable
-fun ApiScreen(navController: NavController, modifier: Modifier = Modifier) {
-    Api(navController, modifier)
+fun HistorialScreen(navController: NavController, modifier: Modifier = Modifier) {
+    Historial(navController, modifier)
 }
 
 @Composable
-fun Api(navController: NavController, modifier: Modifier = Modifier) {
+fun Historial(navController: NavController, modifier: Modifier = Modifier) {
 
     Column(modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceBetween) {
-        Cabecera("Api", modifier)
+        Cabecera("Historial", modifier)
         Box{}
     }
 
