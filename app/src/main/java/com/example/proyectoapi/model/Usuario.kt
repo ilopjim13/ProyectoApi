@@ -1,3 +1,6 @@
 package com.example.proyectoapi.model
 
-data class Usuario(val username:String, val pass:String, val rol:String, val historial:List<Alimento>, val favoritos:List<Alimento> )
+import androidx.compose.runtime.snapshots.SnapshotStateList
+import com.example.proyectoapi.navigation.InfoObj
+
+data class Usuario(val username:String, val pass:String, val rol:String, val historial:SnapshotStateList<InfoObj>, val favoritos:SnapshotStateList<InfoObj> )

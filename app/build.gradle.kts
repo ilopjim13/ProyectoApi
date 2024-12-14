@@ -56,10 +56,17 @@ dependencies {
     implementation(libs.androidx.core.ktx)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
-
     implementation(libs.androidx.activity.compose)
+    implementation (libs.jackson.annotations)
+    implementation (libs.jackson.core)
+    implementation( libs.jackson.databind)
+    implementation (libs.jackson.datatype.jdk8)
+    implementation (libs.jackson.datatype.jsr310)
+    implementation (libs.jackson.module.kotlin)
+    implementation (libs.jackson.module.parameter.names)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
+    implementation(libs.coil.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)

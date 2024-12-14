@@ -16,6 +16,7 @@ import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -23,11 +24,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.proyectoapi.viewModel.ViewModel
 
 @Composable
-fun BottomBar(navController: NavHostController) {
-    var index by remember { mutableStateOf(0) }
-    var ruta = navController.currentBackStackEntryAsState()
+fun BottomBar(navController: NavHostController, viewModel: ViewModel) {
+    var index by remember { mutableIntStateOf(0) }
+    val ruta = navController.currentBackStackEntryAsState()
     NavigationBar(containerColor = Color.White) {
         NavigationBarItem(
             selected = index == 0,
@@ -43,6 +45,7 @@ fun BottomBar(navController: NavHostController) {
                 IconButton({
                     if (ruta.value?.destination?.route != "Menu") {
                         navController.navigate("Menu")
+                        viewModel.resetVariable()
                     }
 
                 }) {
@@ -69,6 +72,7 @@ fun BottomBar(navController: NavHostController) {
                 IconButton({
                     if (ruta.value?.destination?.route != "Api") {
                         navController.navigate("Api")
+                        viewModel.resetVariable()
                     }
                 }) {
                     Icon(
@@ -93,6 +97,7 @@ fun BottomBar(navController: NavHostController) {
                 IconButton({
                     if (ruta.value?.destination?.route != "Historial") {
                         navController.navigate("Historial")
+                        viewModel.resetVariable()
                     }
                 }) {
                     Icon(
@@ -119,6 +124,7 @@ fun BottomBar(navController: NavHostController) {
                 IconButton({
                     if (ruta.value?.destination?.route != "Favorito") {
                         navController.navigate("Favorito")
+                        viewModel.resetVariable()
                     }
                 }) {
                     Icon(

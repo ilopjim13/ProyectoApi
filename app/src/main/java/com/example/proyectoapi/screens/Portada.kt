@@ -1,5 +1,6 @@
 package com.example.proyectoapi.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,9 +16,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.proyectoapi.R
 import com.example.proyectoapi.navigation.Menu
 
 @Composable
@@ -30,9 +33,9 @@ fun Portada(navController: NavController, modifier: Modifier = Modifier) {
 
     Column(modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceEvenly) {
 
-        Icon(
-            imageVector = Icons.Filled.Adb,
-            contentDescription = ""
+        Image(
+            painter = painterResource(R.drawable.logo),
+            contentDescription = "Logo"
         )
 
         Text("Bienvenido a ....")
