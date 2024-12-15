@@ -4,8 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,9 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -37,6 +32,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.proyectoapi.R
 import com.example.proyectoapi.navigation.InfoObj
+import com.example.proyectoapi.service.ApiService
 import com.example.proyectoapi.viewModel.ViewModel
 import kotlinx.coroutines.launch
 
@@ -61,37 +57,38 @@ fun Menu(navController: NavController, viewModel: ViewModel, modifier: Modifier 
             contentDescription = "",
             Modifier.clickable {
                 coroutineScope.launch {
-                    val alimentoRandom = viewModel.getAlimentoRandom()
+                    val alimentoRandom = ApiService.getAlimentoRandom()
                     viewModel.changeAlimento(alimentoRandom)
-                    viewModel.changeIsRandom()
+                    viewModel.changeIsRandom(true)
                 }
-
             }
         )
-        Spacer(Modifier.height(15.dp))
+
+        Spacer(Modifier.height(30.dp))
         Text("Clícame", fontSize = 22.sp)
+
+        Spacer(Modifier.height(30.dp))
+        Text("Y verás alimentos que te podrían interesar...")
 
         if (isRandom) {
             Spacer(Modifier.height(30.dp))
-            Text("Alimento que te podría interesar")
-            Spacer(Modifier.height(15.dp))
-
             AlimentosRandom(alimento) {
                 navController.navigate(InfoObj(alimento?.nombre ?:"", alimento?.marca?:"", alimento?.labels?:"", alimento?.imageUrl?:"", alimento?.isFavorite?:false))
             }
-
-
-
         }
-
     }
-
 }
 
 @Composable
 fun AlimentosRandom(alimento:InfoObj?, onClick:()-> Unit) {
     Row(Modifier.padding(end = 16.dp, start = 16.dp).fillMaxWidth().clickable(onClick = onClick), verticalAlignment = Alignment.CenterVertically) {
-        Row(Modifier.padding(end = 16.dp, start = 16.dp).clip(RoundedCornerShape(20.dp)).background(Color(0xFFB1B1B7)).border(2.dp,Color.Black ).fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            Modifier
+                .padding(end = 16.dp, start = 16.dp)
+                .clip(RoundedCornerShape(10.dp))
+                .background(Color(0xFFFFEF9D))
+                .border(2.dp,Color(0xFFBA880C))
+                .fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(alimento?.imageUrl)

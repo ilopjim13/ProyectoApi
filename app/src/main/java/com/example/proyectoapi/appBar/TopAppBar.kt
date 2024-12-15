@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.CrueltyFree
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarBorder
@@ -23,7 +21,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.proyectoapi.navigation.InfoObj
 import com.example.proyectoapi.viewModel.ViewModel
 
 
@@ -66,7 +63,6 @@ fun MyTopAppBar(navController:NavController,viewModel: ViewModel) {
         actions = {
             if (alimento != null && navController.currentBackStackEntryAsState().value?.destination?.route != "Menu") {
                 IconButton({
-                    viewModel.changeIsFavorite()
                     viewModel.onClickFav(alimento)
                 }) {
                     Icon(
@@ -74,7 +70,10 @@ fun MyTopAppBar(navController:NavController,viewModel: ViewModel) {
                         contentDescription = "Favorito"
                     )
                 }
-                IconButton({ navController.popBackStack() }) {
+                IconButton({
+                    navController.popBackStack()
+                    viewModel.resetVariable()
+                }) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Volver"

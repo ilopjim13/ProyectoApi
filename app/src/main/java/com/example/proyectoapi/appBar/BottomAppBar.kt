@@ -1,27 +1,22 @@
 package com.example.proyectoapi.appBar
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
-import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.proyectoapi.viewModel.ViewModel
@@ -35,10 +30,10 @@ fun BottomBar(navController: NavHostController, viewModel: ViewModel) {
             selected = index == 0,
             onClick = {index = 0},
             colors = NavigationBarItemDefaults.colors(
-                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Menu") Color.Green else Color.White,
+                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Menu") Color(0xFF00941D) else Color.White,
                 selectedTextColor = Color.Black,
                 unselectedTextColor = Color.Gray,
-                selectedIconColor = Color.Black,
+                selectedIconColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Menu") Color.White else Color.Black,
                 unselectedIconColor = Color.Gray
             ),
             icon = {
@@ -62,10 +57,10 @@ fun BottomBar(navController: NavHostController, viewModel: ViewModel) {
             selected = index == 0,
             onClick = {index = 0},
             colors = NavigationBarItemDefaults.colors(
-                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Api") Color.Green else Color.White,
+                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Api") Color(0xFF00941D) else Color.White,
                 selectedTextColor = Color.Black,
                 unselectedTextColor = Color.Gray,
-                selectedIconColor = Color.Black,
+                selectedIconColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Api") Color.White else Color.Black,
                 unselectedIconColor = Color.Gray
             ),
             icon = {
@@ -87,10 +82,10 @@ fun BottomBar(navController: NavHostController, viewModel: ViewModel) {
             selected = index == 0,
             onClick = {index = 0},
             colors = NavigationBarItemDefaults.colors(
-                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Historial") Color.Green else Color.White,
+                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Historial") Color(0xFF00941D) else Color.White,
                 selectedTextColor = Color.Black,
                 unselectedTextColor = Color.Gray,
-                selectedIconColor = Color.Black,
+                selectedIconColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Historial") Color.White else Color.Black,
                 unselectedIconColor = Color.Gray
             ),
             icon = {
@@ -113,10 +108,10 @@ fun BottomBar(navController: NavHostController, viewModel: ViewModel) {
             selected = index == 0,
             onClick = {index = 0},
             colors = NavigationBarItemDefaults.colors(
-                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Favorito") Color.Green else Color.White,
+                indicatorColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Favorito") Color(0xFF00941D) else Color.White,
                 selectedTextColor = Color.Black,
                 unselectedTextColor = Color.Gray,
-                selectedIconColor = Color.Black,
+                selectedIconColor = if(navController.currentBackStackEntryAsState().value?.destination?.route == "Favorito") Color.White else Color.Black,
                 unselectedIconColor = Color.Gray
             ),
             icon = {

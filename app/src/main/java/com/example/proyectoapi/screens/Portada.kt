@@ -5,23 +5,23 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
-import androidx.compose.material.icons.filled.Adb
-import androidx.compose.material.icons.filled.ArrowForwardIos
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.proyectoapi.R
-import com.example.proyectoapi.navigation.Menu
 
 @Composable
 fun PortadaScreen(navController: NavController, modifier: Modifier = Modifier) {
@@ -40,8 +40,12 @@ fun Portada(navController: NavController, modifier: Modifier = Modifier) {
 
         Text("Bienvenido a ....")
 
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = {navController.navigate("Menu")} ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(end = 60.dp, start = 60.dp).fillMaxWidth()) {
+            Button(
+                onClick = {navController.navigate("Menu")},
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFD8B15)
+            ) ) {
                 Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                     Text("Comenzar")
                     Icon(

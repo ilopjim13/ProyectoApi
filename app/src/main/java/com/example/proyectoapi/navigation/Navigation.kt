@@ -1,13 +1,10 @@
 package com.example.proyectoapi.navigation
 
-import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.proyectoapi.screens.ApiScreen
 import com.example.proyectoapi.screens.FavoritoScreen
@@ -34,7 +31,7 @@ fun Proyecto(modifier: Modifier = Modifier, viewModel: ViewModel, navigationCont
         }
         composable<InfoObj> {
             val args = it.toRoute<InfoObj>()
-            InfoScreen(navigationController, viewModel, args, modifier)
+            InfoScreen(args, modifier)
         }
         composable("Favorito") {
             FavoritoScreen(navigationController, viewModel, modifier)
