@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ProyectoApiTheme {
+            ProyectoApiTheme(darkTheme = false) {
                 val navController = rememberNavController()
                 val viewModel = ViewModel()
                 Scaffold(
